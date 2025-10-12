@@ -4,27 +4,28 @@
     <meta charset="UTF-8" />
     <title>Max Noah</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="animation-bg.js"></script>
   </head>
-  <script></script>
 
   <body>
     <div
       class="w-full min-h-screen flex flex-col items-center justify-center bg-sky-100"
     >
       <div class="border-2 border-solid border-black p-20 rounded-2xl">
-        <div class="pb-20 text-7xl text-purple-300 font-semibold w-50">
-          <b>REGISTER USER</b>
+        <div class="pb-20 text-7xl text-[#2b005d] font-black w-50">
+          REGISTER USER
         </div>
 
         <div class="flex flex-col gap-4">
           <!-- Username -->
           <div class="flex flex-row items-center gap-4">
-            <label for="username" class="font-semibold w-24 text-xl"
-              ><b>Username:</b></label
+            <label for="username" class="text-[#8938ff] font-extrabold w-24 text-xl"
+              >Username:</label
             >
             <input
               name="username"
-              class="flex-1 bg-gray-100 border-2 border-solid border-black text-black hover:bg-gray-200 rounded-2xl text-xl py-2 px-4"
+              class="text-[#6e00db] font-semibold flex-1 bg-gray-100 border-2 border-solid border-[#6e00db] hover:bg-gray-200 rounded-2xl text-xl py-2 px-4"
               type="text"
               id="username"
               placeholder="Please enter your username"
@@ -33,12 +34,12 @@
 
           <!-- Password  -->
           <div class="flex flex-row items-center gap-4">
-            <label for="password" class="font-semibold w-24 text-xl"
-              ><b>Password:</b></label
+            <label for="password" class="text-[#8938ff] font-extrabold w-24 text-xl"
+              >Password:</label
             >
             <input
               name="password"
-              class="flex-1 bg-gray-100 border-2 border-solid border-black text-black hover:bg-gray-200 rounded-2xl text-xl py-2 px-4"
+              class="text-[#6e00db] font-semibold flex-1 bg-gray-100 border-2 border-solid border-[#6e00db] hover:bg-gray-200 rounded-2xl text-xl py-2 px-4"
               type="password"
               id="pwd"
               placeholder="Please enter your password"
@@ -47,23 +48,23 @@
 
           <!-- Sex -->
           <div class="flex flex-row items-center gap-4">
-            <label class="font-semibold w-24 text-xl"><b>Sex:</b></label>
+            <label class="font-extrabold w-24 text-xl text-[#8938ff]">Sex:</label>
             <fieldset>
               <div class="flex gap-20">
-                <label class="text-xl font-semibold gap-2">
+                <label class="text-lg font-bold text-[#6e00db] gap-2">
                   <input
                     name="gender"
-                    class="w-5 h-5"
+                    class="w-5 h-5 hover:bg-gray-100"
                     type="radio"
                     id="male"
                     value="male"
                   />
                   Male
                 </label>
-                <label class="text-xl font-semibold gap-2">
+                <label class="text-lg text-[#6e00db] font-bold gap-2">
                   <input
                     name="gender"
-                    class="w-5 h-5"
+                    class="w-5 h-5 hover:bg-gray-100"
                     type="radio"
                     id="female"
                     value="female"
@@ -73,6 +74,27 @@
               </div>
             </fieldset>
           </div>
+
+          <div class="flex flex-row items-center gap-4">
+            <label class="text-xl w-24 font-extrabold text-[#8938ff]" for="country">
+              Country:
+            </label>
+            <select class="text-[#6e00db] flex-1 border border-2 border-solid border-[#6e00db] font-bold hover:bg-gray-100 py-2 px-4" name="country" id="country">
+              <option value="VN">Viet Nam</option>
+              <option value="KR">Han Quoc</option>
+              <option value="TW">Dai Loan</option>
+              <option value="USA">My</option>
+              <option value="SR">Singapore</option>
+              <option value="BR">Brazil</option>
+            </select>
+          </div>
+
+          <div class="flex flex-row items-center gap-2">
+            <label class="text-md font-extrabold text-[#8938ff]" for="select-box">
+              <input id="select-box" name="select-box" class="w-5 h-5 py-2 px-4 w-24 " type="checkbox" />Agree to the terms and conditions
+            </label>
+          </div>
+
           <input
             onclick="registerAccount()"
             class="bg-black text-white hover:bg-gray-400 rounded-2xl text-xl py-2 px-4"
@@ -84,6 +106,6 @@
       <!-- <div id="countNum" class="text-5xl">0</div>
     <input onclick="CountNumber()" class="bg-sky-500 hover:bg-sky-700 rounded-2xl text-xl py-2 px-4" type="submit" id="btn-count"/> -->
     </div>
-    <script src="index.js" />
+    <script src="index.js"></script>
   </body>
 </html>
