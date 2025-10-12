@@ -25,7 +25,41 @@ let country = document.getElementById("country");
 let terms = document.getElementById("terms");
 let btnRegister = document.getElementById("btn-register");
 
+function saveFormData() {
+    localStorage.setItem("form_username", username.value);
+    localStorage.setItem("form_password", password.value);
+    localStorage.setItem("form_male", male.checked ? "male" : (fmale.checked ? 'female' : ''));
+    localStorage.setItem("form_country", country.value);
+    localStorage.setItem("form_terms", terms.checked);
+}
+
+function loadFormData() {
+    username.value = localStorage.getItem('form_username') || '';
+    password.value = localStorage.getItem('form_password') || '';
+
+    let savedGender = localStorage.getItem('form_gender');
+
+    if (savedGender == 'male') {
+        male.checked = true;
+    } else if (savedGender == 'female') {
+        fmale.checked = true;
+    }
+
+    country.value = localStorage.getItem("form_country") || 'VN';
+    terms.checked = localStorage.getItem("form_terms") === true;
+}
+
+function removeFormData() {
+    localStorage.removeItem('form_username');
+    localStorage.removeItem('form_password');
+    localStorage.removeItem('form_gender');
+    localStorage.removeItem('form_country');
+    localStorage.removeItem('form_terms');
+}
+
 function registerAccount() {
+    saveFormData();
+
     // Disable button
     btnRegister.disabled = true;
     btnRegister.value = "Đang xử lý...";
@@ -43,6 +77,8 @@ function registerAccount() {
         }).showToast();
         username.focus();
         resetButton();
+        loadFormData();
+        removeFormData()
         return;
     }
 
@@ -59,6 +95,8 @@ function registerAccount() {
         }).showToast();
         password.focus();
         resetButton();
+        loadFormData();
+        removeFormData()
         return;
     }
     
@@ -75,6 +113,8 @@ function registerAccount() {
         }).showToast();
         password.focus();
         resetButton();
+        loadFormData();
+        removeFormData()
         return;
     }
     
@@ -90,6 +130,7 @@ function registerAccount() {
             }
         }).showToast();
         resetButton();
+        loadFormData();
         return;
     }
     
@@ -105,6 +146,7 @@ function registerAccount() {
             }
         }).showToast();
         resetButton();
+        loadFormData();
         return;
     }
 
@@ -116,6 +158,8 @@ function registerAccount() {
         country: country.value,
         agreeTerms: terms.checked,
     };
+
+    removeFormData();
 
     console.log('Form data: ', formData);
 
